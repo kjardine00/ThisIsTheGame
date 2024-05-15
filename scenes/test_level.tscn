@@ -458,10 +458,7 @@ position = Vector2(313, -33)
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="GreenSlime" parent="Enemies" instance=ExtResource("7_5y7d6")]
-position = Vector2(90, 47)
-
-[node name="GreenSlime2" parent="Enemies" instance=ExtResource("7_5y7d6")]
-position = Vector2(118, -32)
+[node name="GreenSlime3" parent="Enemies" instance=ExtResource("7_5y7d6")]
+position = Vector2(102, 46)
 
 [node name="Labels" type="Node" parent="."]

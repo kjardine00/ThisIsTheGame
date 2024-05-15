@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Music="*res://scenes/music.tscn"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/kjard/OneDrive/Desktop/game.avi"
+
 [input]
 
 jump={
@@ -46,9 +50,10 @@ move_right={
 
 [layer_names]
 
+2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemies"
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"

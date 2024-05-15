@@ -1,7 +1,23 @@
-[gd_scene load_steps=26 format=3 uid="uid://co5smew4qx8u2"]
+[gd_scene load_steps=33 format=3 uid="uid://co5smew4qx8u2"]
 
 [ext_resource type="Texture2D" uid="uid://ktl8dmrldsct" path="res://assets/sprites/knight.png" id="1_dw5b6"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_l0v8v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7i7x"]
+atlas = ExtResource("1_dw5b6")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5gqf"]
+atlas = ExtResource("1_dw5b6")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jexi6"]
+atlas = ExtResource("1_dw5b6")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa405"]
+atlas = ExtResource("1_dw5b6")
+region = Rect2(96, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_282gj"]
 atlas = ExtResource("1_dw5b6")
@@ -91,6 +107,23 @@ region = Rect2(224, 96, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_h7i7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5gqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jexi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa405")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_282gj")
 }, {
 "duration": 1.0,
@@ -172,20 +205,61 @@ animations = [{
 radius = 6.0
 height = 16.0
 
+[sub_resource type="Animation" id="Animation_rxi80"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_la74x"]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.015705, 0.150671, 0.321504, 0.500395),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gbmoe"]
+_data = {
+"RESET": SubResource("Animation_rxi80"),
+"death": SubResource("Animation_la74x")
+}
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_l0v8v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_m7dbr")
-animation = &"idle"
+animation = &"hurt"
 autoplay = "idle"
-frame = 3
-frame_progress = 0.248549
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_lctr1")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gbmoe")
+}

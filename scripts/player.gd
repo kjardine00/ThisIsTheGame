@@ -9,9 +9,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
 
-func _ready():
-		add_to_group("Player") 
-
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -46,3 +43,6 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+func bounce():
+	pass

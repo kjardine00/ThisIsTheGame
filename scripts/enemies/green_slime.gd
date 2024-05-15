@@ -5,12 +5,12 @@ extends CharacterBody2D
 @onready var ray_cast_down = $RayCastDown
 @onready var collision_box = $CollisionShape2D
 @onready var killzone_collision = $Killzone/KillzoneCollision
-@onready var hitbox_collision = $Hitbox/HitboxCollision
+@onready var animation_player = $AnimationPlayer
 
-const SPEED = 35
 const JUMP_VELOCITY = -290
 const WIDTH_FROM_CENTER = 7
 
+var speed = 35
 var direction = 1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -29,11 +29,16 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 		
 	# Handle collision with walls and not falling off an edge
-	if ray_cast_front.is_colliding() or not ray_cast_down.is_colliding():
-		flip_direction()
+	if is_on_floor():
+		if ray_cast_front.is_colliding() or not ray_cast_down.is_colliding():
+			flip_direction()
 	
-	position.x += direction * SPEED * delta
+	position.x += direction * speed * delta
 	move_and_slide()
 	
-	# Jumped on
-
+# Jumped on
+func _on_hurtbox_body_entered(body):
+	speed = 0
+	animation_player.play("death")
+	body.bounce()
+	
