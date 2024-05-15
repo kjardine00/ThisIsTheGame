@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cntn1adxcj44c"]
+
+[ext_resource type="FontFile" uid="uid://dns5own3mmmd8" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_rlwnr"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Coins" type="Label" parent="."]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 416.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("1_rlwnr")
+theme_override_font_sizes/font_size = 16
+text = "Coins: 0"

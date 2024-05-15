@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://dn11cfo167pxg"]
+
+[ext_resource type="Script" path="res://scripts/slime.gd" id="1_0ekdo"]
+[ext_resource type="Texture2D" uid="uid://btiemfdkrv8h3" path="res://assets/sprites/slime_green.png" id="1_0fbar"]
+[ext_resource type="PackedScene" uid="uid://d2w0hqqfsyub0" path="res://scenes/killzone.tscn" id="2_r64f2"]
+[ext_resource type="PackedScene" uid="uid://ueuj1iig7kut" path="res://scenes/hitbox.tscn" id="3_sn6v3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8iuq"]
+atlas = ExtResource("1_0fbar")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mb6f"]
+atlas = ExtResource("1_0fbar")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psmve"]
+atlas = ExtResource("1_0fbar")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs1c3"]
+atlas = ExtResource("1_0fbar")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwlup"]
+atlas = ExtResource("1_0fbar")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_li7kk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8iuq")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mb6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psmve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs1c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwlup")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66utr"]
+size = Vector2(10, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsrnt"]
+size = Vector2(10, 9)
+
+[node name="Slime" type="Node2D"]
+script = ExtResource("1_0ekdo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_li7kk")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Hitbox" parent="." instance=ExtResource("3_sn6v3")]
+position = Vector2(-18, -14)
+
+[node name="Hitbox" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(18, 2.5)
+shape = SubResource("RectangleShape2D_66utr")
+
+[node name="Killzone" parent="." instance=ExtResource("2_r64f2")]
+position = Vector2(0, 5)
+
+[node name="KillzoneCollision" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_qsrnt")
+
+[node name="RayCast2DRight" type="RayCast2D" parent="."]
+position = Vector2(0, -6)
+target_position = Vector2(9, 0)
+
+[node name="RayCast2DLeft" type="RayCast2D" parent="."]
+position = Vector2(0, -6)
+target_position = Vector2(-9, 0)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
