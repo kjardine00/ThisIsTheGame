@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://tgane0sljste"]
 
-[ext_resource type="Script" path="res://scripts/coin.gd" id="1_dkgxa"]
+[ext_resource type="Script" path="res://scripts/interactable/coin.gd" id="1_dkgxa"]
 [ext_resource type="Texture2D" uid="uid://dffutaeu3ih0h" path="res://assets/sprites/coin.png" id="1_e1ibp"]
 [ext_resource type="AudioStream" uid="uid://dopge2gigdhk1" path="res://assets/sounds/coin.wav" id="3_rsiu8"]
 

@@ -1,11 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://co5smew4qx8u2"]
+[gd_scene load_steps=37 format=3 uid="uid://co5smew4qx8u2"]
 
 [ext_resource type="Texture2D" uid="uid://ktl8dmrldsct" path="res://assets/sprites/knight.png" id="1_dw5b6"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_l0v8v"]
 [ext_resource type="PackedScene" uid="uid://cbm3yfiki1px2" path="res://scenes/components/attack_component.tscn" id="3_egdov"]
 [ext_resource type="PackedScene" uid="uid://cse84dgelvgfe" path="res://scenes/components/health_component.tscn" id="4_0w0mw"]
 [ext_resource type="PackedScene" uid="uid://cixtfbffb3p7f" path="res://scenes/components/hitbox_component.tscn" id="5_tku3s"]
-[ext_resource type="AudioStream" uid="uid://b6d4s2fnb4up6" path="res://assets/sounds/hurt.wav" id="6_85sb3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7i7x"]
 atlas = ExtResource("1_dw5b6")
@@ -205,12 +204,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o2dbf"]
-radius = 5.0
-height = 18.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2dvm"]
-size = Vector2(15, 16.25)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfmpr"]
+size = Vector2(10, 18)
 
 [sub_resource type="Animation" id="Animation_rxi80"]
 length = 0.001
@@ -238,22 +233,10 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HurtSFX:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_la74x"]
 resource_name = "death"
-length = 0.4
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -278,153 +261,15 @@ tracks/1/keys = {
 "update": 1,
 "values": [1, 2, 1, 2]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HurtSFX:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_574md"]
-resource_name = "hurt"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"hurt"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HurtSFX:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_df1m7"]
-resource_name = "idle"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_7o874"]
-resource_name = "jump"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"jump"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_bmwpo"]
-resource_name = "run"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"run"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gbmoe"]
 _data = {
 "RESET": SubResource("Animation_rxi80"),
-"death": SubResource("Animation_la74x"),
-"hurt": SubResource("Animation_574md"),
-"idle": SubResource("Animation_df1m7"),
-"jump": SubResource("Animation_7o874"),
-"run": SubResource("Animation_bmwpo")
+"death": SubResource("Animation_la74x")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2dvm"]
+size = Vector2(12, 18)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -433,41 +278,29 @@ collision_mask = 5
 script = ExtResource("1_l0v8v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -12)
+position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_m7dbr")
 animation = &"hurt"
 autoplay = "idle"
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -9)
-shape = SubResource("CapsuleShape2D_o2dbf")
-debug_color = Color(0, 0.6, 0.745098, 0.662745)
-
-[node name="AttackComponent" parent="." instance=ExtResource("3_egdov")]
-
-[node name="HealthComponent" parent="." instance=ExtResource("4_0w0mw")]
-
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_tku3s")]
-visible = false
-collision_layer = 2
-collision_mask = 4
-health_component = NodePath("../HealthComponent")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0, -10.125)
-shape = SubResource("RectangleShape2D_y2dvm")
-debug_color = Color(1, 0.666667, 0.627451, 0.419608)
+shape = SubResource("RectangleShape2D_rfmpr")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_gbmoe")
 }
-autoplay = "idle"
 
-[node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_85sb3")
-bus = &"SFX"
+[node name="AttackComponent" parent="." instance=ExtResource("3_egdov")]
 
-[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
-[connection signal="hurt" from="HealthComponent" to="." method="_on_health_component_hurt"]
+[node name="HealthComponent" parent="." instance=ExtResource("4_0w0mw")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("5_tku3s")]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_y2dvm")

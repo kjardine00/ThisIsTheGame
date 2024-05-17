@@ -1,11 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://iol06w31jfmx"]
+[gd_scene load_steps=6 format=3 uid="uid://iol06w31jfmx"]
 
 [ext_resource type="Script" path="res://scripts/gamemanager.gd" id="1_2fim1"]
 [ext_resource type="PackedScene" uid="uid://co5smew4qx8u2" path="res://scenes/player.tscn" id="1_v3qbk"]
 [ext_resource type="Texture2D" uid="uid://cjfg2s1q318pc" path="res://assets/sprites/world_tileset.png" id="2_wrglh"]
-[ext_resource type="PackedScene" uid="uid://b8li1na387nuo" path="res://scenes/platform.tscn" id="3_oh2dm"]
-[ext_resource type="PackedScene" uid="uid://tgane0sljste" path="res://scenes/coin.tscn" id="4_04y6a"]
-[ext_resource type="PackedScene" uid="uid://d2w0hqqfsyub0" path="res://scenes/killzone.tscn" id="5_caa2k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apo8q"]
 texture = ExtResource("2_wrglh")
@@ -415,9 +412,6 @@ texture = ExtResource("2_wrglh")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_apo8q")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7iqqp"]
-distance = -81.0
-
 [node name="Game" type="Node2D"]
 
 [node name="GameManager" type="Node" parent="."]
@@ -442,27 +436,9 @@ limit_left = -100
 limit_bottom = 140
 position_smoothing_enabled = true
 
-[node name="Killzone" parent="." instance=ExtResource("5_caa2k")]
-position = Vector2(169, 107)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-shape = SubResource("WorldBoundaryShape2D_7iqqp")
-
 [node name="Coins" type="Node" parent="."]
 
-[node name="Coin" parent="Coins" instance=ExtResource("4_04y6a")]
-position = Vector2(216, -28)
-
-[node name="Coin2" parent="Coins" instance=ExtResource("4_04y6a")]
-position = Vector2(216, -44)
-
-[node name="Coin3" parent="Coins" instance=ExtResource("4_04y6a")]
-position = Vector2(216, -12)
-
 [node name="Platforms" type="Node" parent="."]
-
-[node name="Platform" parent="Platforms" instance=ExtResource("3_oh2dm")]
-position = Vector2(313, -33)
 
 [node name="Enemies" type="Node" parent="."]
 

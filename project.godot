@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="BrackeysTutorialGame"
-run/main_scene="res://scenes/test_level.tscn"
+run/main_scene="res://scenes/levels/test_level.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Music="*res://scenes/music.tscn"
+Music="*res://scenes/music/bg_music.tscn"
 
 [editor]
 
@@ -52,7 +52,8 @@ move_right={
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
-2d_physics/layer_3="Enemies"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Traps/Hazards"
 
 [rendering]
 
