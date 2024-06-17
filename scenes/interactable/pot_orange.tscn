@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpdnp3cfbsrm4"]
+
+[ext_resource type="Script" path="res://scripts/interactable/pot_orange.gd" id="1_8cpsh"]
+[ext_resource type="Texture2D" uid="uid://cjfg2s1q318pc" path="res://assets/sprites/world_tileset.png" id="2_anlvm"]
+[ext_resource type="PackedScene" uid="uid://dletu46b67nuq" path="res://scenes/components/interact_component.tscn" id="3_mypos"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_owv45"]
+radius = 4.0
+height = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qmdy7"]
+
+[node name="Pot Orange" type="RigidBody2D"]
+collision_layer = 8
+script = ExtResource("1_8cpsh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_anlvm")
+region_enabled = true
+region_rect = Rect2(19, 113, 10, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_owv45")
+
+[node name="InteractComponent" parent="." instance=ExtResource("3_mypos")]
+collision_layer = 8
+collision_mask = 2
+pickupable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractComponent"]
+shape = SubResource("CircleShape2D_qmdy7")
+
+[connection signal="body_entered" from="InteractComponent" to="." method="_on_interact_component_body_entered"]
+[connection signal="interaction" from="InteractComponent" to="." method="_on_interact_component_interaction"]
+[connection signal="throw_signal" from="InteractComponent" to="." method="_on_interact_component_throw_signal"]

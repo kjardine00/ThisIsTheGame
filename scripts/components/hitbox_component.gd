@@ -9,10 +9,12 @@ func damage(attack: Attack):
 		health_component.damage(attack)
 
 func _on_body_entered(body):
-	print(str(body) + " entered " + str(get_parent().name))
 	if body.attack_component:
 		damage(body.attack_component)
 		
 	if body.has_method("bounce"):
 		body.bounce()
+		
+	if body.has_method("knockback"):
+		body.knockback()
 
