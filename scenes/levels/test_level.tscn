@@ -441,7 +441,7 @@ shape = SubResource("WorldBoundaryShape2D_7epdb")
 [node name="Labels" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("3_pwxwd")]
-position = Vector2(23, 47)
+position = Vector2(23, 40)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(32, -6)
