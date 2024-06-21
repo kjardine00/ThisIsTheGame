@@ -23,7 +23,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Get the input direction:L -1, 0, R 1
-	var direction = Input.get_axis("move_left", "move_right")
+	direction = Input.get_axis("move_left", "move_right")
 
 	# Play Idle and Run Animations
 	if is_on_floor() && animation_player.current_animation != "hurt":

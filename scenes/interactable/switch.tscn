@@ -177,6 +177,7 @@ region_enabled = true
 region_rect = Rect2(76, 60, 18, 15)
 
 [node name="InteractComponent" parent="." instance=ExtResource("2_yvg57")]
+visible = false
 position = Vector2(-2, 5)
 collision_layer = 8
 collision_mask = 2

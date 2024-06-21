@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://tgane0sljste"]
 
 [ext_resource type="Script" path="res://scripts/interactable/coin.gd" id="1_dkgxa"]
-[ext_resource type="Texture2D" uid="uid://d3dfjr0anqkpg" path="res://assets_fullgame/sprites/coin_gold.png" id="2_bjerq"]
+[ext_resource type="Texture2D" uid="uid://dbvlleyek1c5n" path="res://assets_fullgame/sprites/coin_gold.png" id="2_bjerq"]
 [ext_resource type="AudioStream" uid="uid://dopge2gigdhk1" path="res://assets/sounds/coin.wav" id="3_rsiu8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60tkc"]
@@ -177,8 +177,8 @@ script = ExtResource("1_dkgxa")
 sprite_frames = SubResource("SpriteFrames_lmj8q")
 animation = &"spin"
 autoplay = "spin"
-frame = 5
-frame_progress = 0.580551
+frame = 3
+frame_progress = 0.258966
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pvf18")

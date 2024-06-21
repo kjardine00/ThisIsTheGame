@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbvlleyek1c5n"
-path="res://.godot/imported/coin_gold.png-3a82afc6e3d45c2c885e3cfc4b4d9b9b.ctex"
+uid="uid://b02boff75oow5"
+path="res://.godot/imported/WallLight32x32Spritesheet.png-e1c10fa903ee58262b89495d94fdb745.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_fullgame/sprites/coin_gold.png"
-dest_files=["res://.godot/imported/coin_gold.png-3a82afc6e3d45c2c885e3cfc4b4d9b9b.ctex"]
+source_file="res://assets_fullgame/sprites/WallLight32x32Spritesheet.png"
+dest_files=["res://.godot/imported/WallLight32x32Spritesheet.png-e1c10fa903ee58262b89495d94fdb745.ctex"]
 
 [params]
 

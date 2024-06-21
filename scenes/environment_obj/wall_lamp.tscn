@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://dx84qp0iq70y0"]
+
+[ext_resource type="Texture2D" uid="uid://dchvwi61ombgu" path="res://assets_fullgame/sprites/lamp.png" id="1_yykxb"]
+[ext_resource type="Texture2D" uid="uid://b02boff75oow5" path="res://assets_fullgame/sprites/WallLight32x32Spritesheet.png" id="2_n1ka5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjyu3"]
+atlas = ExtResource("2_n1ka5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_765yi"]
+atlas = ExtResource("2_n1ka5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2krn8"]
+atlas = ExtResource("2_n1ka5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h650x"]
+atlas = ExtResource("2_n1ka5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5valm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjyu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_765yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2krn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h650x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbbrx"]
+atlas = ExtResource("1_yykxb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yab51"]
+atlas = ExtResource("1_yykxb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me3t8"]
+atlas = ExtResource("1_yykxb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_182vx"]
+atlas = ExtResource("1_yykxb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vr6w2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbbrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yab51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me3t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_182vx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Wall Lamp" type="Node2D"]
+
+[node name="Wall" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5valm")
+autoplay = "default"
+
+[node name="Lamp" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vr6w2")
+autoplay = "default"
