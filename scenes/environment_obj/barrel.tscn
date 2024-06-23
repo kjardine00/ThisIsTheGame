@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://biq4tat4yf0o"]
+
+[ext_resource type="Texture2D" uid="uid://clvyiw223p3d" path="res://assets_fullgame/sprites/Tilemap - TrapmoorTileset_v03.png" id="1_ctjae"]
+[ext_resource type="Script" path="res://scripts/environment_obj/barrel.gd" id="1_kgt5e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhw3j"]
+size = Vector2(16, 16)
+
+[node name="Barrel" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 3
+lock_rotation = true
+script = ExtResource("1_kgt5e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ctjae")
+region_enabled = true
+region_rect = Rect2(80, 112, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yhw3j")
