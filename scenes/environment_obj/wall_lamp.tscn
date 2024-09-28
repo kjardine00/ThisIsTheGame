@@ -78,7 +78,6 @@ animations = [{
 [node name="Wall Lamp" type="Node2D"]
 
 [node name="Wall" type="AnimatedSprite2D" parent="."]
-visible = false
 sprite_frames = SubResource("SpriteFrames_5valm")
 autoplay = "default"
 
