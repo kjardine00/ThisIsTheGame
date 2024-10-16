@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cin6am6i6m438"]
+
+[ext_resource type="PackedScene" uid="uid://dykalvjct7eyv" path="res://scenes/rooms/test_room1.tscn" id="1_guonc"]
+
+[node name="TestWorld" type="Node2D"]
+
+[node name="TestRoom1" parent="." instance=ExtResource("1_guonc")]
+
+[node name="TestRoom2" parent="." instance=ExtResource("1_guonc")]
+position = Vector2(352, 0)

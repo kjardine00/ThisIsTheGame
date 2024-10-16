@@ -10,7 +10,7 @@ class_name Player
 @onready var grab_position = $GrabPosition
 
 const SPEED = 130
-const JUMP_VELOCITY = -300
+const JUMP_VELOCITY = -350
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -69,4 +69,3 @@ func bounce():
 func knockback():
 	velocity.y = JUMP_VELOCITY * 0.5
 	velocity.x = JUMP_VELOCITY * 1.5
-

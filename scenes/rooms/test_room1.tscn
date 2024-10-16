@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=4 uid="uid://dykalvjct7eyv"]
+
+[ext_resource type="Texture2D" uid="uid://c6ojije8aeg62" path="res://assets/sprites/test_uses/Block_Tilemap.png" id="1_lucbg"]
+[ext_resource type="PackedScene" uid="uid://co5smew4qx8u2" path="res://scenes/player/player.tscn" id="2_glpp5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e08k6"]
+texture = ExtResource("1_lucbg")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_rn0d8"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_e08k6")
+
+[node name="TestRoom1" type="Node2D"]
+metadata/_edit_vertical_guides_ = [-167.0]
+metadata/_edit_horizontal_guides_ = [-120.0, 120.0]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD2//j/AAAAAAAAAAD2//n/AAAAAAAAAAD2//r/AAAAAAAAAAD2//v/AAAAAAAAAAD2//z/AAAAAAAAAAD2//3/AAAAAAAAAAD2//7/AAAAAAAAAAD2////AAAAAAAAAAD2/wAAAAAAAAAAAAD2/wMAAAAAAAAAAAAJAPj/AAAAAAAAAAAJAPn/AAAAAAAAAAAJAPr/AAAAAAAAAAAJAPv/AAAAAAAAAAAJAPz/AAAAAAAAAAAJAP3/AAAAAAAAAAAJAP7/AAAAAAAAAAAJAP//AAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAD2/wEAAAAAAAAAAAD2/wIAAAAAAAAAAAD3//j/AAAAAAAAAAD4//j/AAAAAAAAAAD5//j/AAAAAAAAAAD6//j/AAAAAAAAAAD7//j/AAAAAAAAAAD8//j/AAAAAAAAAAD9//j/AAAAAAAAAAD+//j/AAAAAAAAAAD///j/AAAAAAAAAAAAAPj/AAAAAAAAAAABAPj/AAAAAAAAAAACAPj/AAAAAAAAAAADAPj/AAAAAAAAAAAEAPj/AAAAAAAAAAAFAPj/AAAAAAAAAAAGAPj/AAAAAAAAAAAHAPj/AAAAAAAAAAAIAPj/AAAAAAAAAAAJAAQAAAAAAAAAAAD1/wcAAAAAAAAAAAD2/wcAAAAAAAAAAAD3/wcAAAAAAAAAAAD4/wcAAAAAAAAAAAD5/wcAAAAAAAAAAAD6/wcAAAAAAAAAAAD7/wcAAAAAAAAAAAD8/wcAAAAAAAAAAAD9/wcAAAAAAAAAAAD+/wcAAAAAAAAAAAD//wcAAAAAAAAAAAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAD2/wQAAAAAAAAAAAD1/wQAAAAAAAAAAAD5/wQAAAAAAAAAAAD6/wQAAAAAAAAAAAD7/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_rn0d8")
+
+[node name="Player" parent="." instance=ExtResource("2_glpp5")]
+position = Vector2(-12, 11)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+limit_left = -168
+limit_top = -120
+limit_right = 168
+limit_bottom = 120
